@@ -1,0 +1,13 @@
+header {
+  // dimensions
+  height: 100vh;
+  // background properties
+  background-image: url(../assets/bgImg.JPG);
+  background-position: center;
+  background-size: cover;
+  // flex properties
+  display: flex;
+  align-items: center;
+  // position
+  position: relative;
+}

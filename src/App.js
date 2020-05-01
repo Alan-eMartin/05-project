@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import firebase from './firebase/firebase'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// sass
+import './styles/setup.scss'
+import './styles/header.scss'
+
+// components
+import Profile from './components/Profile/Profile'
+import TopNav from './components/TopNav/TopNav'
+
+
+class App extends Component {
+  render() {
+    return (
+      <>
+        <header>
+          <TopNav />
+            <div className="container">
+              <Profile />
+            </div>
+        </header>
+      </>
+    );
+  }
 }
 
 export default App;

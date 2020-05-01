@@ -1,0 +1,28 @@
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileImg img {
+  border-radius: 50%;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 5rem;
+    text-shadow: 0 0 1rem black;
+    color: #fafafa;
+  }
+
+  h1,
+  .btn {
+    margin-top: 3rem;
+  }
+}
