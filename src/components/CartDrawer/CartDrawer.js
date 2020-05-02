@@ -9,11 +9,19 @@ function CartDrawer(props) {
         <i className="fas fa-times" aria-hidden="true" title="Close Cart"></i>
       </button>
       <ul>
-        <li>Lorem.</li>
+        {props.cartItems.map((item)=> {
+          return (
+            <li className="cartItem">
+              <h3>{item.title}</h3>
+              <p>{item.price}</p>
+            </li>
+          );
+        })}
+        {/* <li>Lorem.</li>
         <li>Iusto!</li>
         <li>Consequuntur.</li>
         <li>Sapiente.</li>
-        <li>Blanditiis.</li>
+        <li>Blanditiis.</li> */}
         {/* append items from user cart to here */}
       </ul>
       <div className="cartBtns">

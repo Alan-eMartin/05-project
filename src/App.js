@@ -53,6 +53,8 @@ class App extends Component {
     }
     // calls get prints and populates array of prints
     getPrints()
+
+    
   }
 
   // Toggle CartDrawer with onClick
@@ -76,22 +78,17 @@ class App extends Component {
   addToCart = (e) => {
     // on click find id of button and link to index of array
     // with id clone that piece from array and push it to a new array
-    // the
-    const cartArray = [...this.state.prints]
 
-    const selectedItems = []
+    const clonedPrints = [...this.state.prints]
+    console.log(clonedPrints);
+    const newCart = []
 
-    
 
-    // selectItems.push(cartArray)
-  //  console.log(selectedItems);
-    
-    // newCart = [...]
-    // console.log('sup',e.target);
+    // newCart.push(clonedPrints[e.target.id])
+
     this.setState({
-      // cart: selectedItems
+      cart: newCart
     })
-    // console.log(this.state.cart);
   };
 
   
@@ -101,7 +98,7 @@ class App extends Component {
       <>
         <header>
           <TopNav toggleOpen={this.toggleDrawer}/>
-          <CartDrawer openClose={this.state.isCartOpen} toggleClose={this.toggleDrawer} />
+          <CartDrawer openClose={this.state.isCartOpen} toggleClose={this.toggleDrawer} cartItems={this.state.cart}/>
           <div className="container">
             <Profile 
               clickBio={this.toggleBio} 
