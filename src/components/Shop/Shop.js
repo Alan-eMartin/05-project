@@ -13,7 +13,7 @@ function Shop(props) {
               <h2>{print.title}</h2>
               <div className="price">
                 <p><span>Price:</span> ${print.price}</p>
-                <button className="addToCart"><i class="fas fa-cart-plus" aria-hidden="true" title="Add to Cart"></i></button>
+              <button className="addToCart" onClick={props.addItem}><i className="fas fa-cart-plus" aria-hidden="true" title="Add to Cart" id={print.id}></i></button>
               </div>
             </div>
 

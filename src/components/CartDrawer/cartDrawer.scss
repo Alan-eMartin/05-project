@@ -24,7 +24,7 @@
       // Hover / Focus
       &:hover,
       &:focus {
-        text-shadow: 0 0 1rem #ff;
+        text-shadow: 0 0 1rem #fff;
         transform: translateY(0.1rem);
       }
       // Focus
@@ -35,9 +35,14 @@
   }
 
   .btn {
-    background-color: hsla(0, 0%, 98%, 0.802);
+    background-color: #fafafa;
     color: #000;
     margin: 1rem;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 1rem #fff;
+    }
   }
 }
 

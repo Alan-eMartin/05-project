@@ -6,7 +6,7 @@ function CartDrawer(props) {
     <div className={props.openClose ? "drawer" : "hidden"}>
     {/* <div className=> */}
       <button className="closeDrawer" onClick={props.toggleClose}>
-        <i class="fas fa-times" aria-hidden="true" title="Close Cart"></i>
+        <i className="fas fa-times" aria-hidden="true" title="Close Cart"></i>
       </button>
       <ul>
         <li>Lorem.</li>

@@ -10,6 +10,9 @@ import Profile from './components/Profile/Profile'
 import TopNav from './components/TopNav/TopNav'
 import CartDrawer from './components/CartDrawer/CartDrawer'
 import Shop from './components/Shop/Shop'
+import Footer from './components/Footer/Footer'
+
+
 
 
 class App extends Component {
@@ -20,6 +23,7 @@ class App extends Component {
       // prints and cart array from firebase
       prints: [],
       cart: [],
+      // itemsInCart: 0,
       // click function states
       isBioVisible: false,
       isBioImgVisible: true,
@@ -44,7 +48,7 @@ class App extends Component {
         this.setState({
           prints: printsArray
         });
-        console.log(this.state.prints);
+        // console.log(this.state.prints)
       })
     }
     // calls get prints and populates array of prints
@@ -57,9 +61,9 @@ class App extends Component {
     this.setState({
       isCartOpen: !this.state.isCartOpen,
     })
-    console.log(this.state.isCartOpen);
   };
-
+  
+  // Toggles bio / H1 and Img being shown
   toggleBio = () => {
     this.setState({
       isBioVisible: !this.state.isBioVisible,
@@ -67,6 +71,28 @@ class App extends Component {
     })
     console.log(this.state.isBioImgVisible);
   }
+
+  // Add items to cart
+  addToCart = (e) => {
+    // on click find id of button and link to index of array
+    // with id clone that piece from array and push it to a new array
+    // the
+    const cartArray = [...this.state.prints]
+
+    const selectedItems = []
+
+    
+
+    // selectItems.push(cartArray)
+  //  console.log(selectedItems);
+    
+    // newCart = [...]
+    // console.log('sup',e.target);
+    this.setState({
+      // cart: selectedItems
+    })
+    // console.log(this.state.cart);
+  };
 
   
 
@@ -90,11 +116,14 @@ class App extends Component {
             <div className="container">
               <h2 className="printHeader">Prints</h2>
               <ul className={'gallery'}>
-                <Shop prints={this.state.prints}/>
+                <Shop prints={this.state.prints} addItem={this.addToCart} />
               </ul>
             </div>
           </section>
         </main>
+
+
+        <Footer />
       </>
     );
   }

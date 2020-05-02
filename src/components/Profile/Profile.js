@@ -19,7 +19,7 @@ function Profile (props) {
           {/* show and hide bio button  */}
           </p>
           <button className="btn" onClick={props.clickBio}>
-          About {props.showImg ? "" : <i class="fas fa-times" aria-hidden="true" title="Close Cart"></i>}
+          About {props.showImg ? "" : <i className="fas fa-times" aria-hidden="true" title="Close Cart"></i>}
           </button>
         </div>
       </div>
