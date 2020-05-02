@@ -1,0 +1,68 @@
+.drawer {
+  // dimension
+  height: 100vh;
+  // max-width: 4rem;
+  min-width: 3.5rem;
+  width: 60%;
+  // background properties
+  background-color: hsla(0, 0%, 0%, 0.9);
+  //position
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+
+  ul {
+    margin-top: 3rem;
+    height: 70%;
+
+    li {
+      color: #fafafa;
+      padding: 1rem;
+      border-bottom: 0.2rem solid rgba(250, 250, 250, 0.809);
+      transition: all 0.2s;
+      // Hover / Focus
+      &:hover,
+      &:focus {
+        text-shadow: 0 0 1rem #ff;
+        transform: translateY(0.1rem);
+      }
+      // Focus
+      &:focus {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .btn {
+    background-color: hsla(0, 0%, 98%, 0.802);
+    color: #000;
+    margin: 1rem;
+  }
+}
+
+.closeDrawer {
+  // font properties
+  font-size: 2rem;
+  color: #fafafa;
+  //background properties
+  background-color: transparent;
+  //dimensions
+  border: none;
+  margin: 0.5rem 0 0 1rem;
+  // Focus / Hover
+  &:hover,
+  &:focus {
+    color: #8facc2;
+  }
+  // Active States
+  &:active {
+    color: #fafafa;
+    text-shadow: 0 0 1rem #fafafa;
+  }
+}
+
+.cartBtns {
+  display: flex;
+  justify-content: center;
+}
