@@ -23,11 +23,13 @@ class App extends Component {
       // prints and cart array from firebase
       prints: [],
       cart: [],
+      total: 0,
       // itemsInCart: 0,
       // click function states
       isBioVisible: false,
       isBioImgVisible: true,
       isCartOpen: false,
+      
     }
   }
   // call FireBase
@@ -75,21 +77,23 @@ class App extends Component {
   }
 
   // Add items to cart
-  addToCart = (e) => {
-    // on click find id of button and link to index of array
-    // with id clone that piece from array and push it to a new array
-
-    const clonedPrints = [...this.state.prints]
-    console.log(clonedPrints);
-    const newCart = []
-
-
+  addToCart = (print) => {
+    const newCart = [...this.state.cart, print]
+    const newTotal = this.state.total + print.price;
     // newCart.push(clonedPrints[e.target.id])
-
     this.setState({
-      cart: newCart
+      cart: newCart,
+      total: newTotal,
     })
   };
+  
+  // remove items from cart
+  removeFromCart = (id) => {
+    // take in the id
+    // identify the same id in the cart 
+    // remove only that print with the same id from the cart
+    // save the new cart
+  }
 
   
 
@@ -98,7 +102,7 @@ class App extends Component {
       <>
         <header>
           <TopNav toggleOpen={this.toggleDrawer}/>
-          <CartDrawer openClose={this.state.isCartOpen} toggleClose={this.toggleDrawer} cartItems={this.state.cart}/>
+          <CartDrawer openClose={this.state.isCartOpen} toggleClose={this.toggleDrawer} cartItems={this.state.cart} finalPrice={this.state.total}/>
           <div className="container">
             <Profile 
               clickBio={this.toggleBio} 

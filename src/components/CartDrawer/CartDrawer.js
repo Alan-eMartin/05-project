@@ -24,6 +24,9 @@ function CartDrawer(props) {
         <li>Blanditiis.</li> */}
         {/* append items from user cart to here */}
       </ul>
+      <div className="totalPrice">
+      <h3>Total: ${props.finalPrice === 0 ? "" :  props.finalPrice}</h3>
+      </div>
       <div className="cartBtns">
         <button className="clearCart btn">Clear Cart</button>
         <button className="checkOut btn">Checkout</button>
