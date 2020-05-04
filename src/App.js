@@ -12,30 +12,25 @@ import CartDrawer from './components/CartDrawer/CartDrawer'
 import Shop from './components/Shop/Shop'
 import Footer from './components/Footer/Footer'
 
-
-
-
 class App extends Component {
-  // set states/ create empty arrays to store firebase data
+  // set states needed to run application
   constructor () {
     super()
     this.state = {
-      // prints and cart array from firebase
-      prints: [],
-      cart: [],
-      total: 0,
-      // itemsInCart: 0,
-      // click function states
-      isBioVisible: false,
-      isBioImgVisible: true,
-      isCartOpen: false,
+      prints: [], //prints array populated from FireBase
+      cart: [], // Cart array is filled with on user click
+      total: 0, // Total cost of items in cart
+      isBioVisible: false, // Allows user to hide and show bio
+      isBioImgVisible: true, // hides/shows picture/header when showing bio
+      isCartOpen: false, // toggles cart drawer
       
     }
   }
-  // call FireBase
+  // calls FireBase to populate print array
   componentDidMount () {
-    // grab print data from firebase
+
     const getPrints = () => {
+      // calls FireBase
       const dbRefPrints = firebase.database().ref('/printShop')
       dbRefPrints.on('value', (result) => {
         //  create empt array to store FireBase data
@@ -50,13 +45,10 @@ class App extends Component {
         this.setState({
           prints: printsArray
         });
-        // console.log(this.state.prints)
       })
     }
     // calls get prints and populates array of prints
-    getPrints()
-
-    
+    getPrints()    
   }
 
   // Toggle CartDrawer with onClick
@@ -73,36 +65,41 @@ class App extends Component {
       isBioVisible: !this.state.isBioVisible,
       isBioImgVisible: !this.state.isBioImgVisible,
     })
-    console.log(this.state.isBioImgVisible);
   }
 
   // Add items to cart
   addToCart = (print) => {
     const newCart = [...this.state.cart, print]
     const newTotal = this.state.total + print.price;
-    // newCart.push(clonedPrints[e.target.id])
+    const roundedPrice = Math.floor((newTotal + Number.EPSILON) * 100) / 100
+    
     this.setState({
       cart: newCart,
-      total: newTotal,
+      total: roundedPrice,
     })
   };
-  
-  // remove items from cart
-  removeFromCart = (id) => {
-    // take in the id
-    // identify the same id in the cart 
-    // remove only that print with the same id from the cart
-    // save the new cart
+
+  // empty cart of selected items
+  emptyCart = () => {
+    const emptyCart = []
+    this.setState({
+     cart: emptyCart,
+    total: 0
+    })      
   }
-
   
-
   render() {
     return (
       <>
         <header>
           <TopNav toggleOpen={this.toggleDrawer}/>
-          <CartDrawer openClose={this.state.isCartOpen} toggleClose={this.toggleDrawer} cartItems={this.state.cart} finalPrice={this.state.total}/>
+          <CartDrawer 
+            openClose={this.state.isCartOpen} 
+            toggleClose={this.toggleDrawer} 
+            cartItems={this.state.cart} 
+            finalPrice={this.state.total} 
+            removeAllItem={this.emptyCart}
+          />
           <div className="container">
             <Profile 
               clickBio={this.toggleBio} 
@@ -117,7 +114,10 @@ class App extends Component {
             <div className="container">
               <h2 className="printHeader">Prints</h2>
               <ul className={'gallery'}>
-                <Shop prints={this.state.prints} addItem={this.addToCart} />
+                <Shop 
+                  prints={this.state.prints} 
+                  addItem={this.addToCart} 
+                />
               </ul>
             </div>
           </section>

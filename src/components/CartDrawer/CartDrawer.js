@@ -17,18 +17,12 @@ function CartDrawer(props) {
             </li>
           );
         })}
-        {/* <li>Lorem.</li>
-        <li>Iusto!</li>
-        <li>Consequuntur.</li>
-        <li>Sapiente.</li>
-        <li>Blanditiis.</li> */}
-        {/* append items from user cart to here */}
       </ul>
       <div className="totalPrice">
       <h3>Total: ${props.finalPrice === 0 ? "" :  props.finalPrice}</h3>
       </div>
       <div className="cartBtns">
-        <button className="clearCart btn">Clear Cart</button>
+        <button className="clearCart btn" onClick={props.removeAllItem}>Clear Cart</button>
         <button className="checkOut btn">Checkout</button>
       </div>
     </div>

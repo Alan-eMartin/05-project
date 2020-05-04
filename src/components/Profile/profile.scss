@@ -46,3 +46,23 @@
     text-shadow: 0 0 1rem #fff;
   }
 }
+
+// media queries
+
+@media (max-width: 760px) {
+  .bio {
+    font-size: 1.3rem;
+    padding: 3rem;
+  }
+
+  .profileInfo .btn {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .bio {
+    overflow-y: scroll;
+    height: 300px;
+  }
+}

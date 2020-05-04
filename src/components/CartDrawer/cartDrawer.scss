@@ -1,9 +1,7 @@
 .drawer {
   // dimension
   height: 100vh;
-  // max-width: 4rem;
-  min-width: 3.5rem;
-  width: 60%;
+  min-width: 28rem;
   // background properties
   background-color: hsla(0, 0%, 0%, 0.9);
   //position
@@ -15,13 +13,17 @@
   ul {
     margin-top: 3rem;
     height: 60%;
-    overflow: auto;
+    overflow-y: auto;
 
     li {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
       color: #fafafa;
       padding: 1rem;
       border-bottom: 0.2rem solid rgba(250, 250, 250, 0.809);
       transition: all 0.2s;
+      margin: 0;
       // Hover / Focus
       &:hover,
       &:focus {
@@ -77,4 +79,21 @@
 .cartBtns {
   display: flex;
   justify-content: center;
+}
+
+.removeItem {
+  color: #fafafa;
+  background-color: transparent;
+  border: none;
+  margin-left: 0.5rem;
+  // Focus / Hover
+  &:hover,
+  &:focus {
+    color: #8facc2;
+  }
+  // Active States
+  &:active {
+    color: #fafafa;
+    text-shadow: 0 0 1rem #fafafa;
+  }
 }
